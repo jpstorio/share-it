@@ -22,8 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(403).json({ message: "Please write a shorter post" });
         }
         if (!title.length) {
-            console.log("empty");
-            return res.status(403).json({ message: "Please write something before we can post it." });
+            return res.status(403).json({ message: "Post is empty" });
         }
 
         //Create Post
