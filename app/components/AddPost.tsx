@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
-    let toastPostID: string;
+    let toastPostID: string = "toastPostID";
 
     //Create a post
     const { mutate } = useMutation(async (title: string) => await axios.post("/api/posts/addPost", { title }), {
