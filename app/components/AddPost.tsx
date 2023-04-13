@@ -8,18 +8,20 @@ import { toast } from "react-hot-toast";
 export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
+    const queryClient = useQueryClient();
     let toastPostID: string = "toastPostID";
 
     //Create a post
     const { mutate } = useMutation(async (title: string) => await axios.post("/api/posts/addPost", { title }), {
-        onError: (error) => {
+        onError: (error: any) => {
             if (error instanceof AxiosError) {
                 toast.error(error?.response?.data.message, { id: toastPostID });
             }
             setIsDisabled(false);
         },
-        onSuccess: (data) => {
+        onSuccess: () => {
             toast.success("Post has been made 🔥", { id: toastPostID });
+            queryClient.invalidateQueries(["posts"]);
             setTitle("");
             setIsDisabled(false);
         },
