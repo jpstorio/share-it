@@ -13,15 +13,13 @@ const allPosts = async () => {
 
 export default function Home() {
     const { data, error, isLoading } = useQuery<PostsType[]>({ queryFn: allPosts, queryKey: ["posts"] });
-    if (error) {
-        return error;
-    }
-    if (isLoading) {
-        return "Loading..";
-    }
-    console.log(data);
+
     return (
         <main>
+            <>
+                {error && error}
+                {isLoading && "Loading..."}
+            </>
             <AddPost />
             {data?.map((post: any) => {
                 return (
