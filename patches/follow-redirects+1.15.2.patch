@@ -1,0 +1,13 @@
+diff --git a/node_modules/follow-redirects/debug.js b/node_modules/follow-redirects/debug.js
+index decb77d..ec3a3b3 100644
+--- a/node_modules/follow-redirects/debug.js
++++ b/node_modules/follow-redirects/debug.js
+@@ -4,7 +4,7 @@ module.exports = function () {
+   if (!debug) {
+     try {
+       /* eslint global-require: off */
+-      debug = require("debug")("follow-redirects");
++      debug = require("./debug")("follow-redirects");
+     }
+     catch (error) { /* */ }
+     if (typeof debug !== "function") {
