@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
 import axios from "axios";
 import { AuthPosts } from "../types/AuthPosts";
 import EditPost from "./EditPost";

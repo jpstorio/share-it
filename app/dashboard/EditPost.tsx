@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Toggle from "./Toggle";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
